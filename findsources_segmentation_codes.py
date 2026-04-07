@@ -230,16 +230,16 @@ def get_star_probs(image_file, photutils_catalog,
     
     return photutils_catalog
     
-def create_exposure_dictionary(quiet=True):
+def create_exposure_dictionary(dir, quiet=True):
 
     '''creates a dictionary of information about each exposure. This is highly 
     customized and not for general use'''
 
     # create exposure dictionary
-    input_images = np.array(glob.glob('/Users/dstark/acs_work/cte/extended/data/processed/*/*_flc.fits'))
+    input_images = np.array(glob.glob('{}/**/*_fl[c].fits'.format(dir), recursive=True))
     image_types = np.array(['flc']*len(input_images))
     image_types = np.concatenate([image_types, np.array(['flt']*len(input_images))])
-    input_images = np.concatenate([input_images, np.array(glob.glob('/Users/dstark/acs_work/cte/extended/data/processed/*/*_flt.fits'))])
+    input_images = np.concatenate([input_images, np.array(glob.glob('{}/**/*_flt.fits'.format(dir), recursive=True))])
 
     if not quiet:
         print(len(input_images), 'images found')
