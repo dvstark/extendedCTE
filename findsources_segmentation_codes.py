@@ -292,7 +292,7 @@ def add_detector_pos(sources, measurement_image, flc_images, plot=False):
 
     counter = 0
     for f in flc_images:
-        x_det, y_det, chip = get_wfc_coords(measurement_image, f, sources.xcentroid, sources.ycentroid, plot=plot)
+        x_det, y_det, chip = get_wfc_coords(measurement_image, f, sources['xcentroid'], sources['ycentroid'], plot=plot)
 
         if counter == 0:
             x_det_all = x_det
