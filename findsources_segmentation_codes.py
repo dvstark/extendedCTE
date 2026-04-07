@@ -325,10 +325,10 @@ def add_detector_pos(sources, measurement_image, flc_images, plot=False):
     sel = chip == 2
     y_shifts[sel] = y_det_final[sel]
 
-    sources.x_det = x_det_final
-    sources.y_det = y_det_final 
-    sources.y_shifts = y_shifts
-    sources.chip = chip
+    sources['x_det'] = x_det_final
+    sources['y_det'] = y_det_final 
+    sources['y_shifts'] = y_shifts
+    sources['chip'] = chip
 
     return sources
 
